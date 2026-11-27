@@ -1,10 +1,16 @@
 from data.models import GRAPH, GRAPH_TEST, Stack
+from data.string_matching import compute_lps
 from collections import deque
 
 
+""" 
+V is Vertex and E is Edge 
+O is O(n)
+"""
+
 class GRAPH_ALGS:
 
-    # Depth-First Search
+    # Depth-First Search O(V + E) 
     @staticmethod
     def dfs(model, start_edge):
         current_edges_dfs = Stack([start_edge])
@@ -61,7 +67,8 @@ class GRAPH_ALGS:
         dfs(start_edge)
 
 
-
+""" results of dfs, bfs and top sort """
 print(GRAPH_ALGS.bfs(GRAPH_TEST, "A"))
 print(GRAPH_ALGS.dfs(GRAPH_TEST, "A"))
 print(GRAPH_ALGS.top_sort(GRAPH_TEST, "A"))
+print(compute_lps("ABABDABACDABABCABAB", "ABABCABAB"))  # Output: [10]
